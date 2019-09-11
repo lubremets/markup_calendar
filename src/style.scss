@@ -1,0 +1,52 @@
+@import "variables";
+
+@mixin centered {
+  justify-content: $align-center;  
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 100px);
+  grid-template-rows: repeat(6, 100px);
+  gap: 1px;
+  @include centered;
+  div:after {
+    font-size: $number-size;
+    font-family: $number-fons;
+    display: flex;
+    height: $height;
+    align-items: $align-center;
+  @include centered;
+  }
+}
+
+@for $month from 28 through 31 {
+  @for $j from 1 through $month {
+    .calendar-#{$month} div:nth-child(#{$j}) {
+      background-color: $bg-color;
+      border: 1px solid black;
+      transition: .5s;
+    }
+    
+  }
+  @for $t from 1 through $month {
+    .calendar-#{$month} div:nth-child(#{$t}):hover {
+      cursor: pointer;
+      background-color: pink;
+      transform: translateY(-20px);
+    }
+  }
+
+  @for $date from 1 through $month {
+    .calendar-#{$month} div:nth-child(#{$date})::after {
+      content: "#{$date}";
+    }
+  }
+}
+
+$week_days: ("mon": "1", "tue": "2", "wed": "3", "thu": "4", "fri": "5", "sat": "6","sun": "7");
+@each $name, $number in $week_days {
+  .calendar-#{$name} > div:first-of-type {
+    grid-column-start: #{$number};
+  }
+}
