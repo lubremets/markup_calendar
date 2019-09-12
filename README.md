@@ -23,6 +23,6 @@ Your calendar should also accept the following alternative classnames and displa
 Each day must be represented by a 100px × 100px #eeeeee-colored cell (including 1px black borders). The gap between the cells must be 1 pixel. The date should be written in the middle of the corresponding cell with Arial 30px font.
 Upon hovering over a cell, the cursor should become pointer. The hovered cell has to become pink and rise by 20 pixels; both of these properties are to be animated with the duration of half a second.
 
-Please see a [reference image](reference.png).
+Please see a [https://lubremets.github.io/markup_calendar/src/](reference.png).
 
 You are encouraged to use SASS (.scss) for this task. Please do not use JavaScript.
